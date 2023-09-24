@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("#currentDay").text(dayjs().format('MMMM D, YYYY'));
+    console.log
 
 function updateColors() {
     let currentHour = dayjs().hour();
@@ -12,6 +13,7 @@ function updateColors() {
         } else {
             $(this).addClass ("future");
         }
+        console.log
     });
 }
 
@@ -24,18 +26,13 @@ $(".time-block").each(function () {
     if (savedText) {
         $(this).find(".description").val(savedText);
     }
+    console.log
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-})
+$(".saveBtn").on("click", function() {
+let blockId = $(this).parent().attr("id");
+let textAreaValue = $(this).siblings(".description").val();
+localStorage.setItem(blockId, textAreaValue)
+console.log
+});
+});
