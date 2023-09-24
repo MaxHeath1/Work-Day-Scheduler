@@ -18,7 +18,13 @@ function updateColors() {
 updateColors();
 
 
-$()
+$(".time-block").each(function () {
+    let id = $(this).attr("id");
+    let savedText = localStorage.getItem(id);
+    if (savedText) {
+        $(this).find(".description").val(savedText);
+    }
+});
 
 
 
