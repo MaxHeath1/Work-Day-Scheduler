@@ -20,6 +20,14 @@ $(document).ready(function () {
         }
     });
 
+    $(".time-block").each(function () {
+        let id = $(this).attr("id");
+        let savedText = localStorage.getItem(id);
+        if (savedText) {
+          $(this).find(".description").val(savedText);
+        }
+      });
+
 $(".saveBtn").on("click", function () {
     let blockId = $(this).parent().attr("id");
     let textAreaValue = $(this).siblings(".description").val();
